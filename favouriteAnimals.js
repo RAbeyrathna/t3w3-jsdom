@@ -64,17 +64,25 @@ function removeAnimalFromList(targetAnimalId){
 
 
 function addAnimalToList(event, targetInputId){
+    // Disable form default event of real form
+    event.preventDefault();
+
     // 1. Find the input field matching targetInputId
     let targetInputField = document.getElementById(targetInputId);
+
     // 2. Get the text value from the input field that we found 
     let foundInputFieldValue = targetInputField.value;
     console.log("Input field value to add to list is: " + foundInputFieldValue);
+
     // 3. Push the text value into the animals array 
     animals.push(foundInputFieldValue);
+
     // 4. Recreate the animal list
     createAnimalList();
-    // Make sure this function deletes the existing list first!
 }
 
 let fakeFormButton = document.getElementById("fakeform-submit");
+let realFormButton = document.getElementById("realform-submit");
+
 fakeFormButton.addEventListener("click", (event) => {addAnimalToList(event, "fakeform-addAnimal")});
+realFormButton.addEventListener("click", (event) => {addAnimalToList(event, "realform-addAnimal")});
