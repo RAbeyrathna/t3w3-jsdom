@@ -17,4 +17,23 @@ function changeCssTheme(themeName){
     }
 }
 
+function setThemeToDark(){
+    changeCssTheme("dark");
+}
+
+function setThemeToLight(){
+    changeCssTheme("light");
+}
+
+function toggleTheme(){
+    let backgroundColor = getComputedStyle(document.documentElement).getPropertyValue("--background");
+    if(backgroundColor == "black"){
+        changeCssTheme("light");
+    }
+    else{
+        changeCssTheme("dark");
+    }
+    
+}
+
 changeCssTheme("light");
